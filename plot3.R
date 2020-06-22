@@ -5,9 +5,9 @@ setwd(workingpath)
 NEI <- readRDS("./data/summarySCC_PM25.rds")
 SCC <- readRDS("./data/Source_Classification_Code.rds")
 
-NEI$Pollutant <- as.factor(NEI$Pollutant)
-NEI$type <- as.factor(NEI$type)
-NEI$year <- as.factor(NEI$year)
+NEI$Pollutant <- factor(NEI$Pollutant)
+NEI$type <- factor(NEI$type, levels=c("POINT", "NONPOINT", "ON-ROAD", "NON-ROAD"))
+NEI$year <- factor(NEI$year)
 
 library(dplyr);  library(ggplot2)
 NEI.BT.type.tot <- NEI %>% 
@@ -15,7 +15,10 @@ NEI.BT.type.tot <- NEI %>%
 	summarize(Emi.Tot = sum(Emissions))
 
 #png(filename = "plot3.png")
-ggplot(data=NEI.BT.type.tot, aes(x=year, y=Emi.Tot, group=type, color=type)) + 
-geom_line()
+g <- ggplot(data=NEI.BT.type.tot, aes(x=year, y=Emi.Tot, fill=type))
+g + geom_bar(stat="identity")
+
+g + geom_bar(stat="identity", position="dodge")
+
 
 #dev.off()
