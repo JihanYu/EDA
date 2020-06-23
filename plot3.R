@@ -14,11 +14,7 @@ NEI.BT.type.tot <- NEI %>%
 	group_by(year, type) %>%
 	summarize(Emi.Tot = sum(Emissions))
 
-#png(filename = "plot3.png")
+png(filename = "plot3.png")
 g <- ggplot(data=NEI.BT.type.tot, aes(x=year, y=Emi.Tot, fill=type))
-g + geom_bar(stat="identity")
-
 g + geom_bar(stat="identity", position="dodge")
-
-
-#dev.off()
+dev.off()
