@@ -5,9 +5,11 @@ setwd(workingpath)
 NEI <- readRDS("./data/summarySCC_PM25.rds")
 SCC <- readRDS("./data/Source_Classification_Code.rds")
 
-NEI$Pollutant <- as.factor(NEI$Pollutant)
-NEI$type <- as.factor(NEI$type)
-NEI$year <- as.factor(NEI$year)
+NEI$Pollutant <- factor(NEI$Pollutant)
+NEI$type <- factor(NEI$type)
+NEI$year <- factor(NEI$year)
+
+# SCC -> c(13, 18, 23)
 
 library(dplyr)
 NEI.tot <- NEI %>% 
