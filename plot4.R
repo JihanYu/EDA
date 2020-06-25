@@ -1,5 +1,5 @@
-#workingpath <- "C:\\Users\\MED1\\Desktop\\Coursera\\project"
-workingpath <- "C:\\Users\\pc\\Desktop\\Jihan\\EDA"
+workingpath <- "C:\\Users\\MED1\\Desktop\\Coursera\\project"
+#workingpath <- "C:\\Users\\pc\\Desktop\\Jihan\\EDA"
 setwd(workingpath)
 
 NEI <- readRDS("./data/summarySCC_PM25.rds")
@@ -15,12 +15,18 @@ SCC.Coal <- as.character(SCC$SCC[id.Coal])
 id.NEI.Coal <- which(NEI$SCC %in% SCC.Coal)
 NEI.Coal <- NEI[id.NEI.Coal,]
 
-library(dplyr)
+library(dplyr);  library(ggplot2)
 NEI.Coal.tot <- NEI.Coal %>% 
 	group_by(year) %>%
 	summarize(Emi.Tot = sum(Emissions))
 
-#png(filename = "plot4.png")
-barplot(Emi.Tot ~ year, data=NEI.Coal.tot, 
-		xlab="Year", ylab="total emissions", main="Total PM2.5 from Coal")
-#dev.off()
+png(filename = "plot4.png")
+g <- ggplot(data=NEI.Coal.tot, aes(x=year, y=Emi.Tot))
+g + geom_bar(stat="identity") + 
+	coord_cartesian(ylim=c(200000, 600000)) +
+	ggtitle("Total emission related to Coal") +
+	xlab("year") + ylab("total emission") +
+	theme(plot.title=element_text(size=16, face="bold"))
+dev.off()
+
+
