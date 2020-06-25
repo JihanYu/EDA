@@ -24,3 +24,6 @@ png(filename = "plot2.png")
 barplot(Emi.Tot ~ year, data=NEI.BT.tot,
 		xlab="Year", ylab="total emissions", main="Total PM2.5 in Baltimore City")
 dev.off()
+
+# Conclusion :
+#   Total emission in the Baltimore city decreased through the year

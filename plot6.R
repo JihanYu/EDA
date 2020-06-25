@@ -46,4 +46,7 @@ g + geom_bar(stat="identity", position="dodge") +
 	theme(plot.title=element_text(size=16, face="bold"))
 dev.off()
 
-
+# Conclusion :
+#  The emission from motor vehicles in LA increased from 1999 to 2005
+#   then decreased in 2008
+#  The amount of change is greater in LA

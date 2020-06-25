@@ -21,3 +21,6 @@ png(filename = "plot1.png")
 barplot(Emi.Tot ~ year, data=NEI.tot, 
 		xlab="Year", ylab="total emissions", main="Total PM2.5 in US")
 dev.off()
+
+# Conclusion :
+#  The emission decreased through the year

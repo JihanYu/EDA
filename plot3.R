@@ -28,3 +28,7 @@ g + geom_bar(stat="identity", position="dodge") +
 	xlab("year") + ylab("total emission") +
 	theme(plot.title=element_text(size=16, face="bold"))
 dev.off()
+
+# Conclusion :
+#  Emission decreased through the year in all types
+#  But the emission from "POINT" increased from 1999 to 2005

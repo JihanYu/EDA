@@ -34,4 +34,5 @@ g + geom_bar(stat="identity") +
 	theme(plot.title=element_text(size=16, face="bold"))
 dev.off()
 
-
+# Conclusion :
+#  Emission from Coal decreased through the year

@@ -35,4 +35,6 @@ g + geom_bar(stat="identity") +
 	theme(plot.title=element_text(size=16, face="bold"))
 dev.off()
 
-
+# Conclusion :
+#  The emission in the Baltimore city decreased from 1999 to 2002
+#  But it increased from 2002 to 2008
